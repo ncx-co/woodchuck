@@ -65,7 +65,7 @@ depend on each other in that level (for example, make sure you can't call
 You don't have to specify all these fields in every protocol.  Fields that are
 excluded simply aren't included in the data collection UI or the CruiseData object.
 
-## Field Optionas
+## Field Options
 
 Each field has a few characteristics that can be specified:
 
@@ -111,8 +111,8 @@ Each field has a few characteristics that can be specified:
 #### SAMPLING ONLY
 
 * expansion-area - "acre" or "hectare"
-* expansion-functions - dictionary of {<sampling_method>: <function>}
-* Note that the function receives a TREE object and returns a trees-per-<expansion-area>
+* expansion-functions - dictionary of {**sampling_method**: **function**}
+* Note that the function receives a TREE object and returns a trees-per-**expansion-area**
 
 #### HEIGHT-DIAMETER ONLY
 
@@ -123,4 +123,4 @@ Each field has a few characteristics that can be specified:
 
 #### SPECIES-GROUP ONLY
 
-* groups - a dictionary of {<group_name>: <species ids or CATCHALL>}
+* groups - a dictionary of {**group_name**: **species-ids-or-CATCHALL**}

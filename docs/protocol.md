@@ -22,7 +22,7 @@ Reserved keywords at each level are:
   * bounds - geojson-multipolygon
   * contactEmail - email
   * notes - string
-  * cruiseDate - datetime
+  * timestamp - datetime
   * plots - list of PLOT
   * protocol - a PROTOCOL
 * PLOT

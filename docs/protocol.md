@@ -18,7 +18,7 @@ Reserved keywords at each level are:
 * CRUISE
   * version - string
   * id - integer
-  * stand-name - string
+  * label - string
   * bounds - geojson-multipolygon
   * contact-email - email
   * notes - string
@@ -30,18 +30,18 @@ Reserved keywords at each level are:
   * label - string or numeric
   * sampling - sampling
   * subplots - list of PLOT (but in the PROTOCOL object, this will be an integer of the number of subplots).
-  * target-loc - geojson-point
-  * actual-loc - geojson-point
-  * actual-loc-accuracy - float
+  * targetLoc - geojson-point
+  * actualLoc - geojson-point
+  * actualLocAccuracy - float
   * notes - string
-  * time-collected - datetime
-  * time-last-edited - datetime
+  * timeCollected - datetime
+  * timeLastEdited - datetime
   * cruiser - email address or string
   * trees - list of TREE
 * TREE
   * expansion - float
   * species - string
-  * species-group - species-group
+  * speciesGroup - species-group
   * segments - list of SEGMENT
   * age - integer
   * crown_ratio - percent
@@ -49,8 +49,8 @@ Reserved keywords at each level are:
   * count - integer
   * height/diameter - dictionary of height/diameter pairs
 * SEGMENT
-  * start_height - numeric
-  * stop_height - numeric
+  * startHeight - numeric
+  * stopHeight - numeric
   * product - string
   * percentage - percent
 
@@ -83,43 +83,49 @@ Each field has a few characteristics that can be specified:
   * inches, feet, 8' log, 16' log, 32' log, centimeters, meters, years, percent 
 * default - some value.  Defaults to null
 * options - a list of acceptable options or null
-* ui-options - a list of options to display in the dropdown or null.  If null, defaults to options if it exists
-* ui-display - should this field be displayed in the UI?  Useful for fields that we'd like to get data for but don't want the user to enter (things like "time_collected" which are automatically filled in by the app)
+* uiOptions - a list of options to display in the dropdown or null.  If null, defaults to options if it exists
+* uiDisplay - should this field be displayed in the UI?  Useful for fields that we'd like to get data for but don't want the user to enter (things like "time_collected" which are automatically filled in by the app)
   * true/false
-* ui-widget - how data will be entered.  Defaults listed below.  If ui-options is specified, we'll also have a select menu that drops down as well (like in the current PH)
+* uiWidget - how data will be entered.  Defaults listed below.  If ui-options is specified, we'll also have a select menu that drops down as well (like in the current PH)
   * checkbox - boolean
   * input type=number - int, float, height-diameter
   * input type=text - string
   * textarea - not default for any type
   * select - default if "options" specified
+  * tabbedSelect
 
 ### Specialized field options
+
+#### For uiWidget == tabbedSelect
+
+ * uiTabs - list (in order) of tabs, e.g. ['common', 'all']
+ * uiTabOptions - dictionary of values for each tab, e.g. {'common': ['white oak', ...], 'all': [ ... ]}
 
 #### NUMERIC ONLY 
 
 (int, float, height-diameter [when there is one fixed value])
 
-* lt-warn - warn if less than this value
-* lte-warn - less than or equal
-* lt-error - throw an error if less than
-* lte-error - ditto
-* gt-warn - ditto
-* gte-warn - ditto
-* gt-error - ditto
-* gte-error - ditto
+* ltWarn - warn if less than this value
+* lteWarn - less than or equal
+* ltError - throw an error if less than
+* lteError - ditto
+* gtWarn - ditto
+* gteWarn - ditto
+* gtError - ditto
+* gteError - ditto
 
 #### SAMPLING ONLY
 
-* expansion-area - "acre" or "hectare"
-* expansion-functions - dictionary of {**sampling_method**: **function**}
+* expansionArea - "acre" or "hectare"
+* expansionFunctions - dictionary of {**sampling_method**: **function**}
 * Note that the function receives a TREE object and returns a trees-per-**expansion-area**
 
 #### HEIGHT-DIAMETER ONLY
 
 * height - the fixed height
 * diameter - the fixed diameter (note that both cannot be fixed at once)
-* height-units - units for height
-* diameter-units - units for diameter
+* heightUnits - units for height
+* diameterUnits - units for diameter
 
 #### SPECIES-GROUP ONLY
 

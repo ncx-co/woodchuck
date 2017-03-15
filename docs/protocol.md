@@ -20,9 +20,9 @@ Reserved keywords at each level are:
   * id - integer
   * label - string
   * bounds - geojson-multipolygon
-  * contact-email - email
+  * contactEmail - email
   * notes - string
-  * cruise-date - datetime
+  * cruiseDate - datetime
   * plots - list of PLOT
   * protocol - a PROTOCOL
 * PLOT
@@ -30,12 +30,11 @@ Reserved keywords at each level are:
   * label - string or numeric
   * sampling - sampling
   * subplots - list of PLOT (but in the PROTOCOL object, this will be an integer of the number of subplots).
-  * targetLoc - geojson-point
-  * actualLoc - geojson-point
-  * actualLocAccuracy - float
+  * targetLocation - geojson-point
+  * measuredLocation - geojson-point
+  * measuredLocAccuracy - float
   * notes - string
-  * timeCollected - datetime
-  * timeLastEdited - datetime
+  * timestamp - datetime
   * cruiser - email address or string
   * trees - list of TREE
 * TREE
@@ -44,10 +43,12 @@ Reserved keywords at each level are:
   * speciesGroup - species-group
   * segments - list of SEGMENT
   * age - integer
-  * crown_ratio - percent
+  * crownRatio - percent
   * notes - string
   * count - integer
   * height/diameter - dictionary of height/diameter pairs
+  * created - datetime
+  * edited - datetime
 * SEGMENT
   * startHeight - numeric
   * stopHeight - numeric
@@ -71,6 +72,8 @@ Each field has a few characteristics that can be specified:
 
 * name - what the field is called.  Special things happen if this is one of the reserved keywords
   * a string
+* displayName - if present it will be used instead of name for display purposes
+  * a string
 * required
   * true/false
 * type - what sort of data this is
@@ -79,6 +82,7 @@ Each field has a few characteristics that can be specified:
   * Other options: boolean, string, email, datetime
   * Special SilviaTerra options: sampling, species-group, height-diameter
   * Image options: not dealing with this for now.  Maybe one day.
+* displayName - if present it will be used instead of name for display purposes
 * units
   * inches, feet, 8' log, 16' log, 32' log, centimeters, meters, years, percent 
 * default - some value.  Defaults to null

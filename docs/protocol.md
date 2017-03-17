@@ -94,7 +94,7 @@ Each field has a few characteristics that can be specified:
   * checkbox - boolean
   * input type=number - int, float, height-diameter
   * input type=text - string
-  * textarea - not default for any type
+  * textArea - not default for any type
   * select - default if "options" specified
   * tabbedSelect
 

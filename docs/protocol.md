@@ -60,8 +60,8 @@ are exactly what they sound like.
 
 Each level also has a reserved "custom-validate" keyword that can optionally
 map to a custom validation function.  This enables validation for fields that
-depend on each other in that level (for example, make sure you can't call 
-"pulp" on a cherry tree). 
+depend on each other in that level (for example, make sure you can't call
+"pulp" on a cherry tree).
 
 You don't have to specify all these fields in every protocol.  Fields that are
 excluded simply aren't included in the data collection UI or the CruiseData object.
@@ -84,7 +84,7 @@ Each field has a few characteristics that can be specified:
   * Image options: not dealing with this for now.  Maybe one day.
 * displayName - if present it will be used instead of name for display purposes
 * units
-  * inches, feet, 8' log, 16' log, 32' log, centimeters, meters, years, percent 
+  * inches, feet, 8' log, 16' log, 32' log, centimeters, meters, years, percent
 * default - some value.  Defaults to null
 * options - a list of acceptable options or null
 * uiOptions - a list of options to display in the dropdown or null.  If null, defaults to options if it exists
@@ -105,7 +105,7 @@ Each field has a few characteristics that can be specified:
  * uiTabs - list (in order) of tabs, e.g. ['common', 'all']
  * uiTabOptions - dictionary of values for each tab, e.g. {'common': ['white oak', ...], 'all': [ ... ]}
 
-#### NUMERIC ONLY 
+#### NUMERIC ONLY
 
 (int, float, height-diameter [when there is one fixed value])
 
@@ -133,4 +133,5 @@ Each field has a few characteristics that can be specified:
 
 #### SPECIES-GROUP ONLY
 
-* groups - a dictionary of {**group_name**: **species-ids-or-CATCHALL**}
+* groups - a dictionary of {**group_name**: **species-common_names **}
+* first species in group_name list will be used as a representative species for reports
